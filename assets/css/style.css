@@ -1,0 +1,432 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* ============================
+   VARIABILI TEMA CHIARO
+============================ */
+:root {
+    --bg-color: #fff;
+    --text-color: #222;
+
+    --card-bg: #f8f9fa;
+    --card-border: #dcdcdc;
+
+    --nav-bg: #343a40;
+    --nav-text: #fff;
+
+    --box-bg: #ffffff;
+    --box-border: #dcdcdc;
+    --box-shadow: rgba(0, 0, 0, 0.08);
+
+    --skill-bg: #f1f1f1;
+    --skill-text: #222;
+
+    --canvas-bg: #fff;
+    --canvas-text: #222;
+
+    --input-bg: #f2f2f2;
+    --input-border: #cfcfcf;
+    --input-text: #222;
+
+    --frontend-color: #0d6efd;
+    --backend-color: #198754;
+    --tools-color: #fd7e14;
+}
+
+/* ============================
+   VARIABILI TEMA SCURO
+============================ */
+.dark-theme {
+    --bg-color: #121212;
+    --text-color: #e5e5e5;
+
+    --card-bg: #1e1e1e;
+    --card-border: #3a3a3a;
+
+    --nav-bg: #000;
+    --nav-text: #fff;
+
+    --box-bg: #1a1a1a;
+    --box-border: #3a3a3a;
+    --box-shadow: rgba(255, 255, 255, 0.05);
+
+    --skill-bg: #2a2a2a;
+    --skill-text: #e5e5e5;
+
+    --canvas-bg: #1a1a1a;
+    --canvas-text: #e5e5e5;
+
+    --input-bg: #2a2a2a;
+    --input-border: #444;
+    --input-text: #e5e5e5;
+
+    --frontend-color: #6ea8fe;
+    --backend-color: #75b798;
+    --tools-color: #ffb078;
+}
+
+.dark-theme h6.text-body-secondary {
+    color: #fff !important;
+}
+
+/* ============================
+   BASE
+============================ */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', 'Roboto', 'Poppins', sans-serif;
+    padding-block-start: 70px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+section {
+    padding-block: 80px;
+}
+
+/*=============================
+    ANIMAZIONI GLOBALI
+=============================*/
+
+@keyframes fadeInImage {
+    from{
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-image {
+    opacity: 0;
+    animation: fadeInImage 0.8s ease-out forwards;
+}
+
+/*Testo da sinistra a destra*/
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-left {
+    opacity: 0;
+    animation: fadeInLeft 0.9s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/*Testo dal alto verso il basso*/
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-down {
+    opacity: 0;
+    animation: fadeInDown 0.6s ease forwards;
+}
+
+@keyframes FadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.thankyou-box {
+    animation: FadeIn 0.8s ease-out forwards;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+.navbar {
+    background-color: var(--nav-bg) !important;
+}
+
+.navbar a,
+.navbar-brand {
+    color: var(--nav-text) !important;
+}
+
+#themeToggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+#themeToggle i {
+    font-size: 1.3rem;
+}
+
+/* ============================
+   OFF CANVAS
+============================ */
+.offcanvas {
+    background-color: var(--canvas-bg) !important;
+    color: var(--canvas-text) !important;
+}
+
+.offcanvas-body {
+    background-color: var(--canvas-bg);
+    color: var(--canvas-text);
+}
+
+.offcanvas-bottom {
+    height: 85% !important;
+    padding: 28px 0;
+}
+
+.offcanvas-bottom .offcanvas-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.offcanvas-bottom .form-wrapper {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px var(--box-shadow);
+}
+
+input.form-control,
+textarea.form-control,
+select.form-control {
+    background-color: var(--input-bg) !important;
+    border: 1px solid var(--input-border) !important;
+    color: var(--input-text) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input.form-control:focus,
+textarea.form-control:focus,
+select.form-control:focus {
+    border-color: #0d6efd !important;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+/* ============================
+   CARD PROGETTI
+============================ */
+.card.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card.project-card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+.placeholder-project {
+    background: var(--bs-dark-bg-subtle);
+    border: 1px dashed var(--bs-border-color);
+    animation: fadeInImage 0.8s ease-out forwards;
+}
+
+
+/* ============================
+   ABOUT SECTION
+============================ */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding-block: 25px;
+}
+
+.about-box {
+    background-color: var(--box-bg);
+    border: 1px solid var(--box-border);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.about-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px var(--box-shadow);
+}
+
+.about-box a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.about-box a:hover {
+    color: #0d6efd;
+}
+
+.about-box i {
+    font-size: 1.3rem;
+    margin-inline-end: 8px;
+}
+
+/* ============================
+   SKILLS TAGS
+============================ */
+.skills-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-tags a {
+    background-color: var(--skill-bg);
+    border: 1px solid var(--box-border);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--skill-text);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.skills-tags a i {
+    font-size: 1rem;
+    color: #0d6efd;
+}
+
+/* Categorie */
+.skill-frontend,
+.skill-backend,
+.skill-tools {
+    color: #fff;
+}
+
+.skill-frontend {
+    background-color: var(--frontend-color); 
+    border-color: var(--frontend-color); 
+}
+
+.skill-backend { 
+    background-color: var(--backend-color);
+    border-color: var(--backend-color);
+}
+
+.skill-tools { 
+    background-color: var(--tools-color);
+    border-color: var(--tools-color);
+}
+
+.skill-frontend i,
+.skill-backend i,
+.skill-tools i {
+    color: #fff;
+}
+
+/* Hover dinamico */
+.skill-frontend:hover {
+    background-color: color-mix(in srgb, var(--frontend-color) 85%, black);
+    border-color: color-mix(in srgb, var(--frontend-color) 85%, black);
+}
+
+.skill-backend:hover {
+    background-color: color-mix(in srgb, var(--backend-color) 85%, black);
+    border-color: color-mix(in srgb, var(--backend-color) 85%, black);
+}
+
+.skill-tools:hover {
+    background-color: color-mix(in srgb, var(--tools-color) 85%, black);
+    border-color: color-mix(in srgb, var(--tools-color) 85%, black);
+}
+
+.skill-frontend:hover i,
+.skill-backend:hover i,
+.skill-tools:hover i {
+    color: #fff;
+}
+
+/* Testo hover nel tema chiaro */
+.skill-frontend:hover,
+.skill-backend:hover,
+.skill-tools:hover {
+    color: #fff !important;
+}
+
+/* Testo hover nel tema scuro */
+.dark-theme .skill-frontend:hover,
+.dark-theme .skill-backend:hover,
+.dark-theme .skill-tools:hover {
+    color: #000 !important;
+}
+
+
+/* ============================
+   RESPONSIVE
+============================ */
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================
+   FOOTER
+============================ */
+footer p {
+    padding-block-start: 25px;
+}
+
+footer .col a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color:#595151 !important;
+    transition: color 0.2s ease;
+}
+
+footer .col a:hover,
+footer .col a:focus-visible {
+    color: #0d6efd !important;
+}

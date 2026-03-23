@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio – Project</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="dark-theme">
+
+<header>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" role="navigation">
+        <div class="container-fluid max-width">
+
+            <a class="navbar-brand" href="index.html">Navbar</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="project.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="offcanvas" 
+                           href="#offcanvasBottom" role="button" aria-controls="offcanvasBottom">
+                           Contact
+                        </a>
+                    </li>
+                </ul>
+
+                <button id="themeToggle" class="btn btn-outline-light d-flex align-items-center gap-2">
+                    <i id="themeIcon" class="bi bi-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Contact -->
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom"
+        aria-labelledby="offcanvasBottomLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title w-100 text-center" id="offcanvasBottomLabel">Contact me</h5>
+        </div>
+
+        <div class="offcanvas-body d-flex justify-content-center">
+            <div class="form-wrapper">
+
+                <form action="https://formspree.io/f/xyknqqkk" method="POST">
+
+                    <input type="hidden" name="_subject" value="New message from your portfolio">
+                    <input type="hidden" name="_language" value="en">
+                    <input type="hidden" name="_redirect" value="https://rikx99.github.io/thankyou.html">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <button type="button" class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas">Cancel</button>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container py-5">
+
+    <div class="text-center p-5 border rounded-3">
+        <h1 class="mb-3">Work in progress</h1>
+        <p class="text-muted">There are no projects available yet. Check back soon!</p>
+    </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container py-5">
+        <div class="border-top border-dark-subtle">
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                
+                <div class="col pt-4">
+                    <div class="d-flex flex-column">
+                        <a class="text-decoration-none mb-2" href="index.html">Home</a>
+                        <a class="text-decoration-none mb-2" href="project.html">Projects</a>
+                        <a class="text-decoration-none mb-2" href="about.html">About</a>
+                    </div>
+                </div>
+
+                <div class="col pt-4">
+                    <div class="d-flex flex-column">
+                        <a class="text-decoration-none mb-2" href="" target="_blank">Github</a>
+                        <a class="text-decoration-none mb-2" href="" target="_blank">Linkedin</a>
+                    </div>
+                </div>
+
+                <div class="col pt-4"></div>
+
+            </div>
+
+            <p>© 2025 - My Portfolio</p>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
