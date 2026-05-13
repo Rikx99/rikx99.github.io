@@ -15,8 +15,8 @@ html {
     --card-bg: #f8f9fa;
     --card-border: #dcdcdc;
 
-    --nav-bg: #343a40;
-    --nav-text: #fff;
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --nav-text: #222;
 
     --box-bg: #ffffff;
     --box-border: #dcdcdc;
@@ -47,7 +47,7 @@ html {
     --card-bg: #1e1e1e;
     --card-border: #3a3a3a;
 
-    --nav-bg: #000;
+    --nav-bg: rgba(0, 0, 0, 0.75);
     --nav-text: #fff;
 
     --box-bg: #1a1a1a;
@@ -88,6 +88,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     color: var(--text-color);
+}
+
+.fullStack{
+    color: #b86bff;
+    font-weight: 600;
 }
 
 section {
@@ -170,23 +175,133 @@ section {
    NAVBAR
 ============================ */
 .navbar {
-    background-color: var(--nav-bg) !important;
+    background-color: transparent;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    backdrop-filter: none;
 }
+
+.navbar.scrolled {
+    background-color: var(--nav-bg) !important;
+    backdrop-filter: blur(10px); /*effetto glass*/
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.custom-navbar{
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.menu-links .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    padding-inline: 22px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--nav-text);
+    transition: color 0.25s ease;
+}
+
+/* Linea animata*/
+.menu-links .nav-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.25s ease;
+}
+
+/*Hover*/
+.menu-links .nav-link:hover{
+    opacity: 0.8;
+    color: var(--frontend-color);
+}
+
+.menu-links .nav-link:hover::after{
+    width: 100%;
+}
+
+/* Menu mobile della navbar (SOLO fino a 991px) */
+@media (max-width: 991px) {
+    .menu-collapse {
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        padding: 1.5rem;
+        border-radius: 0 0 12px 12px;
+    }
+
+    body:not(.dark-theme) .menu-collapse {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    body.dark-theme .menu-collapse {
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+}
+
+
 
 .navbar a,
 .navbar-brand {
-    color: var(--nav-text) !important;
+    color: var(--nav-text);
 }
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.4);
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+}
+
+.dark-theme .navbar-toggler {
+    border-color: rgba(255,255,255,0.4);
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(4px);
+}
+
 
 #themeToggle {
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
     font-weight: 500;
 }
 
 #themeToggle i {
     font-size: 1.3rem;
+    transition: color 0.25s ease;
+}
+
+/* Tema chiaro -> icona scura + bordo */
+:root #themeToggle {
+    color: #222;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Tema scuro -> icona chiara + bordo chiaro */
+
+.dark-theme #themeToggle{
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Hover (entrambi i temi) */
+#themeToggle:hover{
+    backdrop-filter: blur(4px);
+    transform: translateY(-1px);
 }
 
 /* ============================
@@ -411,6 +526,44 @@ select.form-control:focus {
         grid-template-columns: 1fr;
     }
 }
+
+/* MOBILE & TABLET — fino a 991px */
+@media (max-width: 991px) {
+
+    /* Logo meno incollato al bordo */
+    .navbar-brand {
+        padding-left: 12px;
+    }
+
+    /* Spaziatura link nel menu mobile */
+    .menu-links .nav-link {
+        padding-inline: 14px;
+    }
+
+    /* Toggle tema separato dai link */
+    #themeToggle {
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 1px solid var(--card-border);
+    }
+
+    .navbar-toggler{
+        position: relative;
+        z-index: 1100;
+    }
+}
+
+/* DESKTOP — da 992px in su */
+@media (min-width: 992px) {
+    .custom-navbar {
+        padding: 18px 0;
+    }
+    body.dark-theme .navbar{
+        background-color: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
+    }
+}
+
 
 /* ============================
    FOOTER
