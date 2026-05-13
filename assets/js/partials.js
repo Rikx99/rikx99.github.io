@@ -1,17 +1,19 @@
-document.addEventListener("DOMContentLoaded", () =>{
-    //Carica header
-    fetch("header.html")
-    .then(res => res.text())
-    .this(data =>{
-        document.getElementById("header").innerHTML= data;
-        // Inizializza funzioni della navbar dopo il caricamento
-        initNavbarSripts();
-    });
+document.addEventListener("DOMContentLoaded", () => {
 
-    //Carica Footer
+    // Carica HEADER
+    fetch("header.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+
+            // Inizializza la navbar DOPO il caricamento
+            initNavbarScripts();
+        });
+
+    // Carica FOOTER
     fetch("footer.html")
-    .then(res => res.tex())
-    .then(data => {
-        document.getElementById("footer").innerHTML = data;
-    })
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("footer").innerHTML = data;
+        });
 });

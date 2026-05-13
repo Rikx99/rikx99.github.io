@@ -157,46 +157,101 @@ if (savedTheme === "dark") {
 // GESTIONE BOTTONE (SE ESISTE)
 // ===============================
 
-const themeBtn = document.getElementById("themeToggle");
-const themeIcon = document.getElementById("themeIcon");
+// ===============================
+// NAVBAR + THEME + SCROLL + OFFCANVAS
+// ===============================
 
-// Aggiorna icona e testo in base al tema attivo
-function updateThemeButton() {
-    if (!themeBtn) return; // Se il bottone non esiste, esci
+function initNavbarScripts() {
 
-    if (document.body.classList.contains("dark-theme")) {
-        themeIcon.classList.replace("bi-moon", "bi-sun");
-    } else {
-        themeIcon.classList.replace("bi-sun", "bi-moon");
-    }
-}
-
-// Aggiorna subito il bottone quando la pagina carica
-updateThemeButton();
-
-// Listener del bottone
-if (themeBtn) {
-    themeBtn.addEventListener("click", function () {
-        document.body.classList.toggle("dark-theme");
+    // Toggle tema
+    const themeBtn = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+    
+    function updateThemeButton() {
+        if (!themeBtn || !themeIcon) return;
 
         if (document.body.classList.contains("dark-theme")) {
-            localStorage.setItem("theme", "dark");
+            themeIcon.classList.replace("bi-moon", "bi-sun");
         } else {
-            localStorage.setItem("theme", "light");
+            themeIcon.classList.replace("bi-sun", "bi-moon");
         }
+    }
 
-        updateThemeButton();
+    updateThemeButton();
+
+    if (themeBtn) {
+        themeBtn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-theme");
+
+            if (document.body.classList.contains("dark-theme")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+
+            updateThemeButton();
+        });
+    }
+
+    // Stagger automatico
+    const paragraph = document.querySelectorAll('.stagger');
+    paragraph.forEach((p, index) => {
+        p.style.animationDelay = `${0.8 + index * 0.15}s`;
+        p.classList.add('fade-in-left');
     });
+
+    // Scrolling navbar
+    document.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (navbar) {
+            if (window.scrollY > 20) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        }
+    });
+
+    // Chiudi offcanvas cliccando fuori
+    document.addEventListener("click", (e) => {
+        const navbarCollapse = document.getElementById("navbarNav");
+        if (!navbarCollapse) return;
+
+        const isClickInside = navbarCollapse.contains(e.target);
+        const isToggler = e.target.closest(".navbar-toggler");
+
+        if (navbarCollapse.classList.contains("show") && !isClickInside && !isToggler) {
+            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (bsCollapse) bsCollapse.hide();
+        }
+    });
+
+        /* ============================
+       CHIUSURA NAVBAR SU MOBILE
+    ============================ */
+
+    const navbarCollapse = document.getElementById("navbarNav");
+    const bsCollapse = navbarCollapse ? new bootstrap.Collapse(navbarCollapse, { toggle: false }) : null;
+
+    //Chiudi la navbar quando clicchi un link
+    document.querySelectorAll(".menu-links .nav-link").forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth < 992 && bsCollapse) {
+                bsCollapse.hide();
+            }
+        });
+    });
+
+    //Chiudi la navbar quando si apre l’offcanvas Contact
+    const offcanvasContact = document.getElementById("offcanvasBottom");
+    if (offcanvasContact) {
+        offcanvasContact.addEventListener("show.bs.offcanvas", () => {
+            if (window.innerWidth < 992 && bsCollapse) {
+                bsCollapse.hide();
+            }
+        });
+    }
+
 }
-
-//Stagger automatico about-text
-
-const paragraph = document.querySelectorAll('.stagger');
-
-paragraph.forEach((p, h2, index) => {
-    p.style.animationDelay = '$ {0.8 + index + 0.15}s';
-    p.classList.add('fade-in-left');
-});
-
 
 
