@@ -22,7 +22,7 @@
     <!-- HERO -->
     <section class="container py-5">
         <div class="fade-down">
-            <h1 class="fw-bold text-center mb-4">Hi I'm a <span class="fullStack"> Full Stack</span> developer</h1>
+            <h1 class="fw-bold text-center mb-4">I'm a <span class="fullStack"> Full Stack</span> developer</h1>
             <p class="mx-auto fs-5 text-center mb-5" style="max-width: 700px;">
                 I come from a graphic design background, and I bring that attention to detail into the world of web development.  
                 I love creating clean interfaces, writing organized code and learning something new every day.
@@ -34,12 +34,25 @@
     <section class="container py-5">
         <h2 class="fw-bold mb-4 text-start">Projects</h2>
 
-        <!-- Static fallback (PHP version showed this when DB was empty) -->
-        <div class="placeholder-project text-center p-5 border rounded-3">
-            <h3 class="mb-3 text-muted">Work in progress</h3>
-            <p class="text-muted">
-                I'm currently working on my first projects. Check back soon to see the updates!
-            </p>
+        <div class="row g-4" id="projects-grid">
+            <div class="col-md-6 col-lg-4">
+                <div class="card project-card shadow-sm">
+                    <div class="project-img pt-5">
+                        <img src="assets/uploads/demoPokedex.png" class="img-fluid" alt="Pokedex Project Preview">
+                        <div class="project-overlay d-flex flex-column justify-content-center align-items-center">
+                            <a href="https://rikx99.github.io/Pokedex-app/" target="_blank" rel="noopener noreferrer" class="btn btn-light mt-4 mb-2">Live Demo</a>
+                            <a href="https://github.com/Rikx99/Pokedex-app" target="_blank" rel="noopener noreferrer" class="btn btn-light mt-2">GitHub</a> 
+                        </div>
+                    </div>
+                    <div class="project-body p-3">
+                        <h5 class="fw-bold mb-2">Pokédex Dashboard</h5>
+                        <p class="mb-0">
+                            Interactive dashboard featuring Pokémon search, dynamic cards, and real‑time API data.
+                            Developed using HTML, CSS, JavaScript, and TailwindCSS.
+                        </p>
+                    </div>
+                </div>
+            </div>    
         </div>
     </section>
 
@@ -61,18 +74,18 @@
 
                     <li class="mb-2">
                         <i class="bi bi-github me-2"></i>
-                        <a href="https://github.com/Rikx99" target="_blank" class="text-decoration-none">GitHub</a>
+                        <a href="https://github.com/Rikx99" target="_blank" rel="noopener noreferrer" class="text-decoration-none">GitHub</a>
 
                     </li>
 
                     <li class="mb-2">
                         <i class="bi bi-linkedin me-2"></i>
-                        <a href="https://www.linkedin.com/in/riccardo-barchi-0719893b9" target="_blank" class="text-decoration-none">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/riccardo-barchi-0719893b9" target="_blank" rel="noopener noreferrer" class="text-decoration-none">LinkedIn</a>
                     </li>
 
                     <li class="mb-3">
                         <i class="bi bi-twitter-x me-2"></i>
-                        <a href="#" class="text-decoration-none">Twitter</a>
+                        <a href="#" rel="noopener noreferrer" class="text-decoration-none">Twitter</a>
                     </li>
                 </ul>
             </div>
@@ -83,31 +96,38 @@
 
                 <div class="skills-tags">
 
-                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-code-slash"></i> HTML
                     </a>
 
-                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-palette"></i> CSS
                     </a>
 
-                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                    <a class="skill-frontend" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-lightning-charge"></i> JavaScript
                     </a>
 
-                    <a class="skill-backend" href="https://www.php.net/docs.php" target="_blank">
+                    <a class="skill-backend" href="https://www.php.net/docs.php" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-terminal"></i> PHP
                     </a>
 
-                    <a class="skill-backend" href="https://dev.mysql.com/doc/" target="_blank">
+                    <a class="skill-backend" href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-database"></i> MySQL
                     </a>
 
-                    <a class="skill-frontend" href="https://getbootstrap.com/docs/" target="_blank">
+                    <a class="skill-frontend" href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-bootstrap"></i> Bootstrap
                     </a>
 
-                    <a class="skill-tools" href="https://git-scm.com/docs" target="_blank">
+                   <a class="skill-frontend" href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer">
+                    <img src="https://www.svgrepo.com/show/374118/tailwind.svg" 
+                         alt="TailwindCSS Logo" 
+                         class="skill-icon">TailwindCSS
+                    </a>
+
+
+                    <a class="skill-tools" href="https://git-scm.com/docs" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-git"></i> Git
                     </a>
 
