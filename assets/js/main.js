@@ -254,4 +254,20 @@ function initNavbarScripts() {
 
 }
 
+//Animazione Card quando entrano nel vewport
+document.addEventListener("DOMContentLoaded", ()=>{
+    const cards = document.querySelectorAll(".project-card");
+
+    const observer = new IntersectionObserver((entries) =>{
+        entries.forEach((entry, index)=>{
+            if(entry.isIntersecting){
+                entry.target.style.animationDelay = `${index * 0.12}s`;
+                entry.target.classList.add("reveal");
+            }
+        });
+    }, {threshold: 0.2});
+
+    cards.forEach(card => observer.observe(card));
+});
+
 
